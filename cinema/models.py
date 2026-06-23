@@ -98,7 +98,7 @@ class Ticket(models.Model):
             field_name: str,
             error_to_raise
     ) -> None:
-        if not (1 <= value <=max_value):
+        if not (1 <= value <= max_value):
             raise error_to_raise(
                 {
                     field_name: (f"{field_name} must be in range"

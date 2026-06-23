@@ -100,9 +100,9 @@ class MovieSessionViewSet(viewsets.ModelViewSet):
                 .annotate(tickets_sold=Count("tickets"))
                 .annotate(
                     tickets_available=(
-                            F("cinema_hall__rows")
-                            * F("cinema_hall__seats_in_row")
-                            - F("tickets_sold"))
+                        F("cinema_hall__rows")
+                        * F("cinema_hall__seats_in_row")
+                        - F("tickets_sold"))
                 )
             )
 
@@ -123,7 +123,7 @@ class MovieSessionViewSet(viewsets.ModelViewSet):
 
 class OrderSetPagination(PageNumberPagination):
     page_size = 5
-    page_size_query_param = 'page_size'
+    page_size_query_param = "page_size"
     max_page_size = 20
 
 
